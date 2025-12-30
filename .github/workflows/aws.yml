@@ -30,7 +30,7 @@ on:
   workflow_dispatch:
     inputs:
       confirm:
-        description: " type yes"
+        description: "Type YES"
         required: true
 
 env:
@@ -48,6 +48,7 @@ permissions:
 
 jobs:
   deploy:
+    if: ${{ github.event.inputs.confirm == 'YES' }}
     name: Deploy
     runs-on: ubuntu-latest
     environment: production
